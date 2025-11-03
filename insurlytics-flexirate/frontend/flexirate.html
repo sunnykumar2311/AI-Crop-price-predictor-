@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InsurLytics | FlexiRate</title>
+ <link rel="stylesheet" href="flexirate-style.css">
+</head>
+<body>
+  <div class="flexirate-app">
+    <!-- NAV -->
+    <nav class="fr-nav">
+      <a href="dashboard.html">← Back to Dashboard</a>
+    </nav>
+
+    <!-- SPLIT LAYOUT -->
+    <div class="fr-container">
+      <!-- LEFT: FORM -->
+      <section class="fr-left">
+        <h2>FlexiRate Premium Calculator</h2>
+        <form id="flexirate-form" class="fr-form">
+          <label>Age<input type="number" id="Age" name="Age" value="35" /></label>
+          <label>Diabetes<input type="number" id="Diabetes" name="Diabetes" value="0" /></label>
+          <label>Blood Pressure Problems<input type="number" id="BloodPressureProblems" name="BloodPressureProblems" value="0" /></label>
+          <label>Any Transplants<input type="number" id="AnyTransplants" name="AnyTransplants" value="0" /></label>
+          <label>Any Chronic Diseases<input type="number" id="AnyChronicDiseases" name="AnyChronicDiseases" value="0" /></label>
+          <label>Height (cm)<input type="number" id="Height" name="Height" value="170" /></label>
+          <label>Weight (kg)<input type="number" id="Weight" name="Weight" value="70" /></label>
+          <label>Known Allergies<input type="number" id="KnownAllergies" name="KnownAllergies" value="0" /></label>
+          <label>History Of Cancer In Family<input type="number" id="HistoryOfCancerInFamily" name="HistoryOfCancerInFamily" value="0" /></label>
+          <label>Number Of Major Surgeries<input type="number" id="NumberOfMajorSurgeries" name="NumberOfMajorSurgeries" value="0" /></label>
+          <button type="button" id="calculate-btn" class="fr-btn">Calculate Premium</button>
+        </form>
+      </section>
+
+      <!-- RIGHT: RESULTS -->
+      <section class="fr-right">
+        <div class="fr-results">
+          <h2>Prediction Results</h2>
+          <p><strong>Claim (₹):</strong> <span id="claim-inr">--</span></p>
+          <p><strong>Premium (₹):</strong> <span id="premium-inr">--</span></p>
+          <p><strong>Coverage (₹):</strong> <span id="coverage-inr">--</span></p>
+        </div>
+      </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="fr-footer">
+      ©️ 2025 InsurLytics — Smart Insurance for India
+    </footer>
+  </div>
+  <script src="flexirate-script.js"></script>
+</body>
+</html>

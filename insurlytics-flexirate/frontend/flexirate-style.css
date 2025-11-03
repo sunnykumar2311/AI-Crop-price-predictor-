@@ -1,0 +1,167 @@
+/* ==========================================================
+   InsurLytics · FlexiRate — Premium Desktop UI
+   Palette: Blue #1E3A8A, Green #00C897, Black #0F172A, White #FFFFFF
+   Scope strictly to .flexirate-app  (won’t affect other pages)
+========================================================== */
+
+.flexirate-app {
+  --blue: #1E3A8A;
+  --green: #00C897;
+  --black: #0F172A;
+  --white: #FFFFFF;
+  --bg: #F6F9FC;             /* soft off-white for app background */
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow-1: 0 8px 30px rgba(30, 58, 138, 0.10);
+  --shadow-2: 0 14px 48px rgba(15, 23, 42, 0.12);
+
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: radial-gradient(1200px 700px at 15% 0%, #EAF5FF 0%, transparent 45%),
+              radial-gradient(1200px 700px at 85% 100%, #E7FFF6 0%, transparent 45%),
+              linear-gradient(180deg, #F9FBFF 0%, var(--bg) 100%);
+  color: var(--black);
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.flexirate-app * { box-sizing: border-box; }
+
+/* ───────── Top bar (Back) */
+.flexirate-app .fr-nav{
+  height: 64px; display:flex; align-items:center; padding:0 28px;
+  backdrop-filter: blur(6px) saturate(120%);
+  background: linear-gradient(90deg, rgba(255,255,255,0.92), rgba(255,255,255,0.88));
+  border-bottom: 1px solid var(--border);
+}
+.flexirate-app .fr-nav a{
+  text-decoration:none; color:var(--blue); font-weight:800; letter-spacing:.2px;
+}
+.flexirate-app .fr-nav a:hover{ color:var(--green); }
+
+/* ───────── Two elevated cards */
+.flexirate-app .fr-canvas{
+  height: calc(100vh - 64px);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 560px minmax(520px, 1fr);
+  place-items: center;
+  gap: 36px;
+  padding: 38px 48px;
+}
+
+/* Shared “surface card” look */
+.flexirate-app .fr-surface{
+  width: 100%;
+  max-width: 560px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-1);
+}
+
+/* LEFT: Form card */
+.flexirate-app .fr-left{
+  composes: fr-surface;
+  padding: 28px 28px 32px;
+}
+.flexirate-app .fr-left h2{
+  margin: 0 0 6px 2px;
+  font-size: 30px; line-height:1.2; font-weight:900; letter-spacing:-.3px;
+  color: var(--black);
+}
+.flexirate-app .fr-subtitle{
+  margin: 0 0 18px 2px; color: rgba(15,23,42,.65); font-size: 14px;
+}
+
+/* Form grid (keeps your inputs; no radios/toggles added) */
+.flexirate-app .fr-form{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 16px 18px;
+}
+.flexirate-app .fr-form label{
+  display:flex; flex-direction:column; gap:8px;
+  font-size: 12.5px; font-weight: 700; color: rgba(15,23,42,.7);
+}
+
+/* Inputs (your existing <input> elements) */
+.flexirate-app .fr-input,
+.flexirate-app .fr-form input{
+  height: 44px; padding: 10px 12px;
+  border-radius: 14px; border:1px solid var(--border);
+  background:#FFFFFF; color:var(--black); font-size:15px;
+  transition: box-shadow .18s ease, border-color .18s ease, transform .05s ease;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+}
+.flexirate-app .fr-input:focus,
+.flexirate-app .fr-form input:focus{
+  outline:none; border-color: rgba(0,200,151,.9);
+  box-shadow: 0 0 0 4px rgba(0,200,151,.18);
+}
+
+/* Calculate button */
+.flexirate-app .fr-btn{
+  grid-column: 1 / -1;
+  margin-top: 6px; height: 50px; border:none; border-radius:16px;
+  background: linear-gradient(135deg, var(--blue) 0%, #214a9d 40%, var(--green) 110%);
+  color:#fff; font-weight:900; letter-spacing:.3px; font-size:15.5px; cursor:pointer;
+  box-shadow: 0 10px 28px rgba(30,58,138,.18);
+  transition: transform .16s ease, box-shadow .2s ease, filter .2s ease;
+}
+.flexirate-app .fr-btn:hover{ transform: translateY(-2px); box-shadow: var(--shadow-2); filter:saturate(105%); }
+
+/* RIGHT: Result card (glass over blue-green) */
+.flexirate-app .fr-right{
+  width: 100%;
+  max-width: 640px;
+  border-radius: 20px;
+  background: linear-gradient(140deg, #1E3A8A, #0F2C6B);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
+  padding: 28px;
+}
+.flexirate-app .fr-right::before{
+  content:""; position:absolute; inset:-20% -10% auto auto;
+  width: 60%; height: 60%;
+  background: radial-gradient(ellipse at center, rgba(0,200,151,.25), transparent 60%);
+  filter: blur(30px);
+}
+.flexirate-app .fr-card{
+  position: relative; z-index:1;
+  background: rgba(255,255,255,.10);
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 16px;
+  padding: 28px 28px 20px;
+  color: #F6FBFE;
+}
+.flexirate-app .fr-card h2{
+  margin: 0 0 12px 0; font-size: 22px; font-weight: 900; letter-spacing:.2px;
+}
+
+/* Metric rows */
+.flexirate-app .fr-row{
+  display:grid; grid-template-columns: 1fr auto; align-items:center;
+  padding: 14px 0; border-top: 1px solid rgba(255,255,255,.18);
+}
+.flexirate-app .fr-row:first-child{ border-top: none; }
+.flexirate-app .fr-row .label{
+  color: rgba(255,255,255,.85); font-size: 14px; letter-spacing:.2px;
+}
+.flexirate-app .fr-row .value{
+  font-size: 32px; font-weight: 900; letter-spacing:.3px; padding-left: 24px; text-align:right;
+  color: #EAFEF7; text-shadow: 0 2px 12px rgba(0,0,0,.35);
+}
+
+/* Footer */
+.flexirate-app .fr-footer{
+  position: absolute; left:0; right:0; bottom:0; height: 44px;
+  display:flex; align-items:center; justify-content:center;
+  background:#0F172A; color:#FFFFFF; font-size:12px; letter-spacing:.3px;
+}
+
+/* Desktop responsiveness (keeps it desktop-first) */
+@media (max-width: 1280px){
+  .flexirate-app .fr-canvas{ grid-template-columns: 520px 1fr; }
+}
